@@ -38,7 +38,7 @@ const Logo = ({ size }) => (
       <text
         fill="url(#paint5_linear_56_57)"
         style={{
-          fontfamily: "Kalimati", // Correction des paramètres qui étaient entre ""
+          fontfamily: "Kalimati", // Fix : des paramètres qui étaient entre "" et avec des -
           fontsize: "39px",
           fontweight: 700,
           whitespace: "pre",
