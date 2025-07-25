@@ -19,7 +19,7 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
-        // If successful, we call onSuccess
+        // Fix : appel de `onSuccess()` ajouté après succès pour déclencher l'action de confirmation
         onSuccess();
       } catch (err) {
         setSending(false);
