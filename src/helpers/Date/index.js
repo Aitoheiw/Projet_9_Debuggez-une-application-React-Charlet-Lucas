@@ -13,6 +13,6 @@ export const MONTHS = {
   11: "décembre",
 };
 
-// j'ai modifier les index
+// Fix : Des Index pour avoir les mois a leurs places
 
 export const getMonth = (date) => MONTHS[date.getMonth()];
