@@ -42,3 +42,9 @@ textarea {
 
   font-family: "Manrope", sans-serif;
 }
+// Fix : Style pour les erreurs de champ
+.field-error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
