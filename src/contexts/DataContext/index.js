@@ -31,31 +31,6 @@ export const DataProvider = ({ children }) => {
     getData();
   });
 
-  console.log("✅ EVENTS", data?.events);
-  console.log(
-    "✅ LAST CALCULATED",
-    [...(data?.events || [])].sort((a, b) => {
-      const monthsMap = {
-        janvier: 0,
-        février: 1,
-        mars: 2,
-        avril: 3,
-        mai: 4,
-        juin: 5,
-        juillet: 6,
-        août: 7,
-        septembre: 8,
-        octobre: 9,
-        novembre: 10,
-        décembre: 11,
-      };
-
-      const getIndex = (month) => monthsMap[month?.trim().toLowerCase()] ?? -1;
-
-      return getIndex(b.month) - getIndex(a.month);
-    })[0]
-  );
-
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
