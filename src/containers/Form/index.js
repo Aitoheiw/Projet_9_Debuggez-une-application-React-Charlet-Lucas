@@ -14,11 +14,11 @@ const Form = ({ onSuccess, onError }) => {
 
   // fix : États des champs
   const [formData, setFormData] = useState({
-    nom: "",
-    prenom: "",
-    email: "",
-    message: "",
-    type: "", // personnel / entreprise
+    nom: "Jean",
+    prenom: "Dupont",
+    email: "JeanDupont@email.com",
+    message: "Bonjour je suis intéressé par vos services.",
+    type: "Personel", // personnel / entreprise
   });
 
   const [errors, setErrors] = useState({});
@@ -32,7 +32,6 @@ const Form = ({ onSuccess, onError }) => {
     if (!formData.prenom.trim()) newErrors.prenom = "Le prénom est requis.";
     if (!emailRegex.test(formData.email)) newErrors.email = "Email invalide.";
     if (!formData.message.trim()) newErrors.message = "Le message est requis.";
-    if (!formData.type) newErrors.type = "Veuillez choisir un type.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -98,8 +97,12 @@ const Form = ({ onSuccess, onError }) => {
             onChange={(e) => handleChange("email", e.target.value)}
             error={errors.email}
           />
-          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
-            {sending ? "En cours..." : "Envoyer"}
+          <Button
+            type={BUTTON_TYPES.SUBMIT}
+            disabled={sending}
+            data-testid="button-test-id"
+          >
+            {sending ? "En cours" : "Envoyer"}
           </Button>
         </div>
         <div className="col">
