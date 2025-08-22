@@ -8,11 +8,10 @@ const mockContactApi = () =>
   new Promise((resolve) => {
     setTimeout(resolve, 500);
   });
-
+// Fix : Form — ouverture de la modale au succès
 const Form = ({ onSuccess, onError }) => {
   const [sending, setSending] = useState(false);
 
-  // Fix : Form — validation et envoi du formulaire
   const [formData, setFormData] = useState({
     nom: "Jean",
     prenom: "Dupont",

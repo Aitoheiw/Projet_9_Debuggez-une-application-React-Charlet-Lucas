@@ -23,7 +23,6 @@ const Slider = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [index, byDateDesc.length]);
 
-  // Sécurité
   if (byDateDesc.length === 0) return null;
   return (
     <div className="SlideCardList">

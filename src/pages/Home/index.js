@@ -12,7 +12,7 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
-// Fix :  Page — ouverture de la modale au succès + garde-fou sur `last`
+// Fix :  Page — garde-fou sur `last`
 const Page = () => {
   const { last } = useData();
   return (
