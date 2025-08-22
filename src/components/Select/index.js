@@ -16,12 +16,10 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    // Fix : passage explicite de `newValue` dans le `onChange`
-    // Avant, on appelait `onChange()` sans argument, donc le parent ne savait pas quel item était sélectionné
+    // Fix :  Select afin que le changement de valeur fonctionne
     onChange(newValue);
     setValue(newValue);
-    // Fix : la valeur ici doit toujours être `true` (fermer la liste)
-    // Avant : on faisait `setCollapsed(newValue)`, ce qui pouvait mettre `false` si newValue === null
+
     setCollapsed(true);
   };
   return (

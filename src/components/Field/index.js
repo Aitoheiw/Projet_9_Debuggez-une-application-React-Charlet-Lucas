@@ -6,7 +6,7 @@ export const FIELD_TYPES = {
   TEXTAREA: 2,
 };
 
-// Fix : Ajout des props value, onChange, error
+// Fix : Field - Ajout des props onChange, value et error
 
 const Field = ({
   type = FIELD_TYPES.INPUT_TEXT,
@@ -27,7 +27,6 @@ const Field = ({
           name={name}
           placeholder={placeholder}
           value={value}
-          // fix : onChange est maintenant une prop
           onChange={onChange}
           data-testid="field-testid"
         />
@@ -39,7 +38,6 @@ const Field = ({
           name={name}
           placeholder={placeholder}
           value={value}
-          // fix : onChange est maintenant une prop
           onChange={onChange}
           data-testid="field-testid"
         />
@@ -52,7 +50,6 @@ const Field = ({
           name={name}
           placeholder={placeholder}
           value={value}
-          // fix : onChange est maintenant une prop
           onChange={onChange}
           data-testid="field-testid"
         />
@@ -63,7 +60,6 @@ const Field = ({
     <div className="inputField">
       <span>{label}</span>
       {component}
-      {/* Fix : Affichage de l'erreur si elle existe */}
       {error && <div className="field-error">{error}</div>}
     </div>
   );
@@ -74,7 +70,6 @@ Field.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  // Fix : Ajout des types pour les props value, onChange, error
   value: PropTypes.string,
   onChange: PropTypes.func,
   error: PropTypes.string,
@@ -85,7 +80,6 @@ Field.defaultProps = {
   placeholder: "",
   type: FIELD_TYPES.INPUT_TEXT,
   name: "field-name",
-  // Fix : Valeurs par défaut pour value, onChange, error
   value: "",
   onChange: () => {},
   error: null,

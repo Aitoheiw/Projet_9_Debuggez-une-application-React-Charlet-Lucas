@@ -12,7 +12,7 @@ const mockContactApi = () =>
 const Form = ({ onSuccess, onError }) => {
   const [sending, setSending] = useState(false);
 
-  // fix : États des champs
+  // Fix : Form — validation et envoi du formulaire
   const [formData, setFormData] = useState({
     nom: "Jean",
     prenom: "Dupont",
@@ -25,7 +25,6 @@ const Form = ({ onSuccess, onError }) => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // fix : Validation
   const validate = () => {
     const newErrors = {};
     if (!formData.nom.trim()) newErrors.nom = "Le nom est requis.";
@@ -36,11 +35,10 @@ const Form = ({ onSuccess, onError }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // fix : Envoi du formulaire
   const sendContact = useCallback(
     async (evt) => {
       evt.preventDefault();
-      // fix : Validation avant envoi
+
       if (!validate()) return;
 
       setSending(true);
@@ -53,11 +51,9 @@ const Form = ({ onSuccess, onError }) => {
         onError(err);
       }
     },
-    // fix : Ajout de FormData
     [formData, onSuccess, onError]
   );
 
-  // fix : Changement des champs
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: null }));

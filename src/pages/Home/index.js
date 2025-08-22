@@ -12,8 +12,9 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+// Fix :  Page — ouverture de la modale au succès + garde-fou sur `last`
 const Page = () => {
-  const { last } = useData(); // Fix : formatage plus propre avec un espace entre `{` et `last`
+  const { last } = useData();
   return (
     <>
       <header>
@@ -106,12 +107,7 @@ const Page = () => {
             }
           >
             {({ setIsOpened }) => (
-              // Fix : retour explicite sur succès — appelle setIsOpened(true) pour ouvrir la modale
-              <Form
-                onSuccess={() => setIsOpened(true)}
-                // Fix : fallback sur erreur prévu, même si aucune action (évite les crashs potentiels)
-                onError={() => null}
-              />
+              <Form onSuccess={() => setIsOpened(true)} onError={() => null} />
             )}
           </Modal>
         </div>
@@ -119,7 +115,7 @@ const Page = () => {
       <footer className="row">
         <div className="col presta">
           <h3>Notre derniére prestation</h3>
-          {/* Fix : ajout d’une vérification `last &&` pour éviter des erreurs si les données ne sont pas encore chargées */}
+
           {last && (
             <EventCard
               imageSrc={last.cover}
